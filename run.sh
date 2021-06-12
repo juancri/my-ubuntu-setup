@@ -32,7 +32,6 @@ wget -O /tmp/chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_
 sudo dpkg -i /tmp/chrome.deb
 rm -rf /tmp/chrome.deb
 
-
 # Install zoom
 wget -O /tmp/zoom.deb https://cdn.zoom.us/prod/5.6.20278.0524/zoom_amd64.deb
 sudo dpkg -i /tmp/zoom.deb
@@ -52,6 +51,15 @@ sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/trusted.gpg.d/p
 rm -f /tmp/packages.microsoft.gpg
 sudo apt update
 sudo apt install code
+
+# Install cadence
+echo "Installing cadence..."
+sudo apt install apt-transport-https gpgv
+wget -O /tmp/kxstudio.deb https://launchpad.net/~kxstudio-debian/+archive/kxstudio/+files/kxstudio-repos_10.0.3_all.deb
+sudo dpkg -i /tmp/kxstudio.deb
+sudo rm /tmp/kxstudio.deb
+sudo apt update
+sudo apt install cadence
 
 # Install bash git prompt
 echo "Installing bash git prompt..."
