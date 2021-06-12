@@ -12,6 +12,8 @@ sudo apt -u dist-upgrade
 echo "Installing other packages..."
 sudo apt install \
   apt-transport-https \
+  cmake \
+  ffmpeg \
   git \
   jackd \
   libegl1-mesa \
@@ -19,11 +21,10 @@ sudo apt install \
   libxcb-xtest0 \
   mc \
   neovim \
-  obs-plugins \
-  obs-studio \
   pavucontrol \
   pulseaudio-module-jack \
   qjackctl \
+  qtbase5-dev \
   v4l2loopback-dkms
 
 # Install google chrome
@@ -60,6 +61,26 @@ sudo dpkg -i /tmp/kxstudio.deb
 sudo rm /tmp/kxstudio.deb
 sudo apt update
 sudo apt install cadence
+
+# Install OBS
+echo "Installing OBS..."
+sudo add-apt-repository ppa:obsproject/obs-studio
+sudo apt install obs-studio
+
+# Install OBS plugins
+echo "Installing OBS plugins..."
+sudo apt install libobs-dev
+mkdir -p ~/src
+pushd ~/src
+git clone --recursive https://github.com/obsproject/obs-studio.git
+git clone https://github.com/CatxFish/obs-v4l2sink.git
+mkdir -p ~/src/obs-v4l2sink/build
+pushd ~/src/obs-v4l2sink/build
+cmake -DLIBOBS_INCLUDE_DIR="../../obs-studio/libobs" -DCMAKE_INSTALL_PREFIX=/usr ..
+make -j16
+sudo make install
+popd
+popd
 
 # Install bash git prompt
 echo "Installing bash git prompt..."
