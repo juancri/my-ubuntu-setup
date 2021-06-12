@@ -20,7 +20,8 @@ sudo apt install \
   neovim \
   obs-plugins \
   obs-studio \
-  pavucontrol
+  pavucontrol \
+  v4l2loopback-dkms
 
 # Install google chrome
 echo "Installing google-chrome..."
