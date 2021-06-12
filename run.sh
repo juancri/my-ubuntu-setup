@@ -13,6 +13,7 @@ echo "Installing other packages..."
 sudo apt install \
   apt-transport-https \
   git \
+  jackd \
   libegl1-mesa \
   libgl1-mesa-glx \
   libxcb-xtest0 \
@@ -21,6 +22,8 @@ sudo apt install \
   obs-plugins \
   obs-studio \
   pavucontrol \
+  pulseaudio-module-jack \
+  qjackctl \
   v4l2loopback-dkms
 
 # Install google chrome
