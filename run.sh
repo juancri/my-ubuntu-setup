@@ -16,6 +16,7 @@ sudo apt install \
   libegl1-mesa \
   libgl1-mesa-glx \
   libxcb-xtest0 \
+  mc \
   neovim \
   obs-plugins \
   obs-studio \
