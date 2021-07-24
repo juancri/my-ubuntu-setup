@@ -108,6 +108,10 @@ cp ./files/bashrc ~/.bashrc
 echo "Disabling sudo passwd..."
 sudo cp files/nopasswd /etc/sudoers.d/nopasswd
 
+# Show seconds in clock
+echo "Showing seconds in clock..."
+gsettings set org.gnome.desktop.interface clock-show-seconds true
+
 # Generate SSH key
 echo "Generating SSH key..."
 mkdir -p ~/.ssh
