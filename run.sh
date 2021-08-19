@@ -27,6 +27,11 @@ sudo apt install \
   qtbase5-dev \
   v4l2loopback-dkms
 
+# Uninstall packages
+echo "Uninstalling packages..."
+sudo apt uninstall \
+  update-manager
+
 # Install google chrome
 echo "Installing google-chrome..."
 wget -O /tmp/chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
