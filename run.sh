@@ -1,7 +1,7 @@
 
 # Constants
 EXPECTED_DISTRIB_ID="Ubuntu"
-EXPECTED_DISTRIB_RELEASE="20.04"
+EXPECTED_DISTRIB_RELEASE="22.04"
 
 # Checking the current OS
 echo "Checking the current OS..."
@@ -38,6 +38,7 @@ sudo apt install \
   git \
   gparted \
   jackd \
+  libappindicator3-1 \
   libegl1-mesa \
   libgl1-mesa-glx \
   libxcb-xtest0 \
@@ -55,6 +56,10 @@ echo "Uninstalling packages..."
 sudo apt remove \
   update-manager
 
+# Remove unnecessary packages
+echo "Removing unnecessary packages..."
+sudo apt autoremove
+
 # Install google chrome
 echo "Installing google-chrome..."
 wget -O /tmp/chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
@@ -62,7 +67,7 @@ sudo dpkg -i /tmp/chrome.deb
 rm -rf /tmp/chrome.deb
 
 # Install zoom
-wget -O /tmp/zoom.deb https://cdn.zoom.us/prod/5.6.20278.0524/zoom_amd64.deb
+wget -O /tmp/zoom.deb https://cdn.zoom.us/prod/5.9.3.1911/zoom_amd64.deb
 sudo dpkg -i /tmp/zoom.deb
 rm -rf /tmp/zoom.deb
 
@@ -83,7 +88,6 @@ sudo apt install code
 
 # Install cadence
 echo "Installing cadence..."
-sudo apt install apt-transport-https gpgv
 wget -O /tmp/kxstudio.deb https://launchpad.net/~kxstudio-debian/+archive/kxstudio/+files/kxstudio-repos_10.0.3_all.deb
 sudo dpkg -i /tmp/kxstudio.deb
 sudo rm /tmp/kxstudio.deb
@@ -118,8 +122,8 @@ git clone https://github.com/magicmonty/bash-git-prompt.git ~/.bash-git-prompt
 echo "Installing nodejs..."
 mkdir -p ~/src/node
 pushd ~/src/node
-wget https://nodejs.org/dist/v14.16.1/node-v14.16.1-linux-x64.tar.xz
-tar xvf node-v14.16.1-linux-x64.tar.xz
+wget https://nodejs.org/dist/v16.13.2/node-v16.13.2-linux-x64.tar.xz
+tar xvf node-v16.13.2-linux-x64.tar.xz
 popd
 
 # Install youtube-dl
@@ -147,8 +151,7 @@ ssh-keygen -f ~/.ssh/id_rsa -N ""
 
 # Configure git
 echo "Configuring git..."
-read -p "Enter your name:" FULLNAME
-read -p "Enter your email:" EMAIL
+read -p "Enter your name: " FULLNAME
+read -p "Enter your email: " EMAIL
 git config --global user.name "${FULLNAME}"
 git config --global user.email "${EMAIL}"
-
