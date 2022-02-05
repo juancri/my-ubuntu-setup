@@ -1,6 +1,24 @@
 
-# Checking the current OS
+# Constants
+EXPECTED_DISTRIB_ID="Ubuntu"
+EXPECTED_DISTRIB_RELEASE="20.04"
 
+# Checking the current OS
+echo "Checking the current OS..."
+. /etc/lsb-release
+if [ $DISTRIB_ID != $EXPECTED_DISTRIB_ID ];
+then
+  echo "Distribution is not ${EXPECTED_DISTRIB_ID}: ${DISTRIB_ID}"
+  exit
+fi
+if [ $DISTRIB_RELEASE != $EXPECTED_DISTRIB_RELEASE ];
+then
+  echo "Version is not ${EXPECTED_DISTRIB_RELEASE}: ${DISTRIB_RELEASE}"
+  exit
+fi
+
+# Ready
+read -p "Ready to install. Press [ENTER] to start..."
 
 # Replace sources.list
 echo "Replacing sources.list..."
