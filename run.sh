@@ -52,7 +52,7 @@ sudo apt install \
 
 # Uninstall packages
 echo "Uninstalling packages..."
-sudo apt uninstall \
+sudo apt remove \
   update-manager
 
 # Install google chrome
