@@ -1,4 +1,7 @@
 
+# Checking the current OS
+
+
 # Replace sources.list
 echo "Replacing sources.list..."
 sudo cp files/sources.list /etc/apt/sources.list
@@ -15,6 +18,7 @@ sudo apt install \
   cmake \
   ffmpeg \
   git \
+  gparted \
   jackd \
   libegl1-mesa \
   libgl1-mesa-glx \
@@ -25,6 +29,7 @@ sudo apt install \
   pulseaudio-module-jack \
   qjackctl \
   qtbase5-dev \
+  tldr \
   v4l2loopback-dkms
 
 # Uninstall packages
