@@ -37,7 +37,9 @@ sudo apt install \
   ffmpeg \
   git \
   gparted \
+  httpie \
   jackd \
+  jq \
   libappindicator3-1 \
   libegl1-mesa \
   libgl1-mesa-glx \
