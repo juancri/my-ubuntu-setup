@@ -136,6 +136,11 @@ cp ./files/bashrc ~/.bashrc
 echo "Disabling sudo passwd..."
 sudo cp files/nopasswd /etc/sudoers.d/nopasswd
 
+# Disable packagekit
+echo "Disabling packagekit..."
+sudo systemctl stop packagekit
+sudo systemctl disable packagekit
+
 # Show seconds in clock
 echo "Showing seconds in clock..."
 gsettings set org.gnome.desktop.interface clock-show-seconds true
