@@ -42,6 +42,7 @@ sudo apt install \
   libgl1-mesa-glx \
   libxcb-xtest0 \
   mc \
+  meld \
   neovim \
   pavucontrol \
   pulseaudio-module-jack \
