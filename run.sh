@@ -37,7 +37,9 @@ sudo apt install \
   ffmpeg \
   git \
   gparted \
+  httpie \
   jackd \
+  jq \
   libegl1-mesa \
   libgl1-mesa-glx \
   libxcb-xtest0 \
