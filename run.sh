@@ -133,6 +133,12 @@ mkdir -p ~/bin
 wget https://yt-dl.org/downloads/latest/youtube-dl -O ~/bin/youtube-dl
 chmod a+x ~/bin/youtube-dl
 
+# Install expressvpn
+echo "Installing expressvpn..."
+wget https://www.expressvpn.works/clients/linux/expressvpn_3.21.0.2-1_amd64.deb -O /tmp/expressvpn.deb
+sudo dpkg -i /tmp/expressvpn.deb
+rm -rf /tmp/expressvpn.deb
+
 # Copy .bashrc
 echo "Copying .bashrc..."
 cp ./files/bashrc ~/.bashrc
