@@ -50,6 +50,7 @@ sudo apt install \
   pulseaudio-module-jack \
   qjackctl \
   qtbase5-dev \
+  synapse \
   tldr \
   v4l2loopback-dkms
 
