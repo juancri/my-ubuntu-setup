@@ -134,6 +134,10 @@ echo "Disabling packagekit..."
 sudo systemctl stop packagekit
 sudo systemctl disable packagekit
 
+# Disable super key shortcut
+echo "Disabling super key shortcut..."
+gsettings set com.solus-project.brisk-menu hot-key ''
+
 # Generate SSH key
 echo "Generating SSH key..."
 mkdir -p ~/.ssh
