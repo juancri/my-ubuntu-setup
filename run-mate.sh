@@ -34,10 +34,9 @@ echo "Installing other packages..."
 sudo apt install \
   apt-transport-https \
   cmake \
-  ffmpeg \
-  git \
   gparted \
   httpie \
+  ibus \
   jackd \
   jq \
   libappindicator3-1 \
@@ -53,11 +52,6 @@ sudo apt install \
   qtbase5-dev \
   tldr \
   v4l2loopback-dkms
-
-# Uninstall packages
-echo "Uninstalling packages..."
-sudo apt remove \
-  update-manager
 
 # Remove unnecessary packages
 echo "Removing unnecessary packages..."
@@ -102,21 +96,6 @@ echo "Installing OBS..."
 sudo add-apt-repository ppa:obsproject/obs-studio
 sudo apt install obs-studio
 
-# Install OBS plugins
-echo "Installing OBS plugins..."
-sudo apt install libobs-dev
-mkdir -p ~/src
-pushd ~/src
-git clone --recursive https://github.com/obsproject/obs-studio.git
-git clone https://github.com/CatxFish/obs-v4l2sink.git
-mkdir -p ~/src/obs-v4l2sink/build
-pushd ~/src/obs-v4l2sink/build
-cmake -DLIBOBS_INCLUDE_DIR="../../obs-studio/libobs" -DCMAKE_INSTALL_PREFIX=/usr ..
-make -j16
-sudo make install
-popd
-popd
-
 # Install bash git prompt
 echo "Installing bash git prompt..."
 git clone https://github.com/magicmonty/bash-git-prompt.git ~/.bash-git-prompt
@@ -153,10 +132,6 @@ sudo cp files/nopasswd /etc/sudoers.d/nopasswd
 echo "Disabling packagekit..."
 sudo systemctl stop packagekit
 sudo systemctl disable packagekit
-
-# Show seconds in clock
-echo "Showing seconds in clock..."
-gsettings set org.gnome.desktop.interface clock-show-seconds true
 
 # Generate SSH key
 echo "Generating SSH key..."
