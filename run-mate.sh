@@ -17,12 +17,15 @@ then
   exit
 fi
 
+# Variables
+SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+
 # Ready
 read -p "Ready to install. Press [ENTER] to start..."
 
 # Replace sources.list
 echo "Replacing sources.list..."
-sudo cp files/sources.list /etc/apt/sources.list
+sudo cp "${SCRIPT_DIR}/files/sources.list" /etc/apt/sources.list
 
 # Update and upgrade
 echo "Running update and upgrade..."
@@ -123,11 +126,11 @@ rm -rf /tmp/expressvpn.deb
 
 # Copy .bashrc
 echo "Copying .bashrc..."
-cp ./files/bashrc ~/.bashrc
+cp "${SCRIPT_DIR}/files/bashrc" ~/.bashrc
 
 # Disable sudo passwd
 echo "Disabling sudo passwd..."
-sudo cp files/nopasswd /etc/sudoers.d/nopasswd
+sudo cp "${SCRIPT_DIR}/files/nopasswd /etc/sudoers.d/nopasswd
 
 # Disable packagekit
 echo "Disabling packagekit..."
