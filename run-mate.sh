@@ -60,6 +60,7 @@ sudo apt install --yes \
   mpv \
   neovim \
   pavucontrol \
+  pinta \
   pipewire-audio-client-libraries \
   python3-ibus-1.0 \
   synapse \
