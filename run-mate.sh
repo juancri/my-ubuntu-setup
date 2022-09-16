@@ -36,6 +36,7 @@ sudo apt -u dist-upgrade --yes
 echo "Installing other packages..."
 sudo apt install --yes \
   ffmpeg \
+  flameshot \
   gir1.2-ibus-1.0 \
   gparted \
   httpie \
