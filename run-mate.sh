@@ -30,29 +30,38 @@ sudo cp "${SCRIPT_DIR}/files/sources.list" /etc/apt/sources.list
 # Update and upgrade
 echo "Running update and upgrade..."
 sudo apt update
-sudo apt -u dist-upgrade
+sudo apt -u dist-upgrade --yes
 
 # Install other packages
 echo "Installing other packages..."
-sudo apt install \
-  apt-transport-https \
-  cmake \
+sudo apt install --yes \
+  ffmpeg \
+  gir1.2-ibus-1.0 \
   gparted \
   httpie \
   ibus \
-  jackd \
+  ibus-data \
+  ibus-gtk \
+  ibus-gtk3 \
+  ibus-gtk4 \
   jq \
-  libappindicator3-1 \
+  libcairo-script-interpreter2 \
   libegl1-mesa \
   libgl1-mesa-glx \
+  libgtk-4-1 \
+  libgtk-4-bin \
+  libgtk-4-common \
+  libibus-1.0-5 \
+  libspa-0.2-bluetooth \
+  libspa-0.2-jack wireplumber \
   libxcb-xtest0 \
   mc \
   meld \
+  mpv \
   neovim \
   pavucontrol \
-  pulseaudio-module-jack \
-  qjackctl \
-  qtbase5-dev \
+  pipewire-audio-client-libraries \
+  python3-ibus-1.0 \
   synapse \
   tldr \
   v4l2loopback-dkms
@@ -87,13 +96,21 @@ rm -f /tmp/packages.microsoft.gpg
 sudo apt update
 sudo apt install code
 
-# Install cadence
-echo "Installing cadence..."
+# Install catia
+echo "Installing catia..."
 wget -O /tmp/kxstudio.deb https://launchpad.net/~kxstudio-debian/+archive/kxstudio/+files/kxstudio-repos_10.0.3_all.deb
 sudo dpkg -i /tmp/kxstudio.deb
 sudo rm /tmp/kxstudio.deb
 sudo apt update
-sudo apt install cadence
+sudo apt install catia
+
+# Configure PipeWire for JACK
+echo "Configuring PipeWire for JACK..."
+sudo cp /usr/share/doc/pipewire/examples/ld.so.conf.d/pipewire-jack-*.conf /etc/ld.so.conf.d/
+
+# Remove pulseaudio for Bluetooth
+echo "Removing pulseaudio for Bluetooth..."
+sudo apt remove pulseaudio-module-bluetooth
 
 # Install OBS
 echo "Installing OBS..."
@@ -112,11 +129,11 @@ wget https://nodejs.org/dist/v16.13.2/node-v16.13.2-linux-x64.tar.xz
 tar xvf node-v16.13.2-linux-x64.tar.xz
 popd
 
-# Install youtube-dl
-echo "Installing youtube-dl..."
+# Install yt-dlp
+echo "Installing yt-dlp..."
 mkdir -p ~/bin
-wget https://yt-dl.org/downloads/latest/youtube-dl -O ~/bin/youtube-dl
-chmod a+x ~/bin/youtube-dl
+wget https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -O ~/bin/yt-dlp
+chmod a+x ~/bin/yt-dlp
 
 # Install expressvpn
 echo "Installing expressvpn..."
@@ -130,7 +147,7 @@ cp "${SCRIPT_DIR}/files/bashrc" ~/.bashrc
 
 # Disable sudo passwd
 echo "Disabling sudo passwd..."
-sudo cp "${SCRIPT_DIR}/files/nopasswd /etc/sudoers.d/nopasswd
+sudo cp "${SCRIPT_DIR}/files/nopasswd" /etc/sudoers.d/nopasswd
 
 # Disable packagekit
 echo "Disabling packagekit..."
