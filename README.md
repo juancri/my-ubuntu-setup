@@ -7,7 +7,7 @@ Extra setup for Ubuntu 22.04
 
 ```bash
 sudo apt update
-sudo apt install git
+sudo apt install git --yes
 git clone https://github.com/juancri/my-ubuntu-setup.git ~/.my-ubuntu-setup
 ~/.my-ubuntu-setup/run.sh
 ```
@@ -16,7 +16,7 @@ git clone https://github.com/juancri/my-ubuntu-setup.git ~/.my-ubuntu-setup
 
 ```bash
 sudo apt update
-sudo apt install git
+sudo apt install git --yes
 git clone https://github.com/juancri/my-ubuntu-setup.git ~/.my-ubuntu-setup
 ~/.my-ubuntu-setup/run-mate.sh
 ```
