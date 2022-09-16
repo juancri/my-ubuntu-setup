@@ -108,6 +108,10 @@ sudo apt install catia
 echo "Configuring PipeWire for JACK..."
 sudo cp /usr/share/doc/pipewire/examples/ld.so.conf.d/pipewire-jack-*.conf /etc/ld.so.conf.d/
 
+# Enable PipwWire
+echo "Enabling PipeWire..."
+systemctl --user --now enable wireplumber.service
+
 # Remove pulseaudio for Bluetooth
 echo "Removing pulseaudio for Bluetooth..."
 sudo apt remove pulseaudio-module-bluetooth
@@ -169,3 +173,11 @@ read -p "Enter your name: " FULLNAME
 read -p "Enter your email: " EMAIL
 git config --global user.name "${FULLNAME}"
 git config --global user.email "${EMAIL}"
+
+# Display ssh key
+echo "New SSH key:"
+cat ~/.ssh/id_rsa.pub
+
+# Done
+read -p "Done! Press [ENTER] to reboot..."
+sudo reboot
