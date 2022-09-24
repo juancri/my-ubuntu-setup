@@ -61,6 +61,7 @@ sudo apt install --yes \
   meld \
   mpv \
   neovim \
+  net-tools \
   pavucontrol \
   pinta \
   pipewire-audio-client-libraries \
