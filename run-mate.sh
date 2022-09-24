@@ -35,6 +35,7 @@ sudo apt -u dist-upgrade --yes
 # Install other packages
 echo "Installing other packages..."
 sudo apt install --yes \
+  awscli \
   ffmpeg \
   flameshot \
   gir1.2-ibus-1.0 \
