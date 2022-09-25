@@ -66,6 +66,7 @@ sudo apt install --yes \
   pinta \
   pipewire-audio-client-libraries \
   python3-ibus-1.0 \
+  shellcheck \
   synapse \
   tldr \
   v4l2loopback-dkms
