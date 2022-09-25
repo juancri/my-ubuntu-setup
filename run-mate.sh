@@ -133,10 +133,10 @@ git clone https://github.com/magicmonty/bash-git-prompt.git ~/.bash-git-prompt
 # Install node
 echo "Installing nodejs..."
 mkdir -p ~/src/node
-pushd ~/src/node
+pushd ~/src/node || exit
 wget https://nodejs.org/dist/v16.13.2/node-v16.13.2-linux-x64.tar.xz
 tar xvf node-v16.13.2-linux-x64.tar.xz
-popd
+popd || exit
 
 # Install yt-dlp
 echo "Installing yt-dlp..."
@@ -174,8 +174,8 @@ ssh-keygen -f ~/.ssh/id_rsa -N ""
 
 # Configure git
 echo "Configuring git..."
-read -p "Enter your name: " FULLNAME
-read -p "Enter your email: " EMAIL
+read -r -p "Enter your name: " FULLNAME
+read -r -p "Enter your email: " EMAIL
 git config --global user.name "${FULLNAME}"
 git config --global user.email "${EMAIL}"
 
@@ -184,5 +184,5 @@ echo "New SSH key:"
 cat ~/.ssh/id_rsa.pub
 
 # Done
-read -p "Done! Press [ENTER] to reboot..."
+read -r -p "Done! Press [ENTER] to reboot..."
 sudo reboot
